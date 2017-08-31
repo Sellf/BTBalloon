@@ -141,6 +141,19 @@ static CGFloat const margin = 10.0f;
 }
 
 
+- (void)setBalloonCornerRadius:(CGFloat)balloonCornerRadius
+{
+    _balloonCornerRadius = balloonCornerRadius;
+    _balloonView.layer.cornerRadius = balloonCornerRadius;
+}
+
+
+- (void)setButtonCornerRadius:(CGFloat)buttonCornerRadius
+{
+    _buttonCornerRadius = buttonCornerRadius;
+    _button.layer.cornerRadius = buttonCornerRadius;
+}
+
 # pragma mark -
 # pragma mark Views
 
@@ -198,8 +211,7 @@ static CGFloat const margin = 10.0f;
     self.balloonView = [[UIView alloc] initWithFrame:CGRectZero];
     self.balloonView.translatesAutoresizingMaskIntoConstraints = NO;
     self.balloonView.backgroundColor = self.balloonBackgroundColor;
-    self.balloonView.layer.cornerRadius = 8.0;
-    self.balloonView.layer.masksToBounds = YES;
+    self.balloonView.layer.cornerRadius = self.balloonCornerRadius;
     [self addSubview:self.balloonView];
 
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[balloonView]-(0)-|"
@@ -251,7 +263,7 @@ static CGFloat const margin = 10.0f;
         _button.titleLabel.font = self.buttonFont;
         [_button setTitleColor:self.buttonTextColor forState:UIControlStateNormal];
         [_button addTarget:self action:@selector(buttonWasTouched:) forControlEvents:UIControlEventTouchUpInside];
-        _button.layer.cornerRadius = 8.0;
+        _button.layer.cornerRadius = self.buttonCornerRadius;
         [_button addConstraint:[NSLayoutConstraint constraintWithItem:_button
                                                             attribute:NSLayoutAttributeHeight
                                                             relatedBy:NSLayoutRelationEqual
