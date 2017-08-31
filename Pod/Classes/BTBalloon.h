@@ -30,6 +30,8 @@
 @property (strong, nonatomic) UIColor *balloonBackgroundColor UI_APPEARANCE_SELECTOR;
 @property (strong, nonatomic) UIFont *textFont UI_APPEARANCE_SELECTOR;
 @property (strong, nonatomic) UIColor *textColor UI_APPEARANCE_SELECTOR;
+@property (assign, nonatomic) CGFloat balloonCornerRadius UI_APPEARANCE_SELECTOR;
+@property (assign, nonatomic) CGFloat buttonCornerRadius UI_APPEARANCE_SELECTOR;
 
 + (instancetype)sharedInstance;
 
